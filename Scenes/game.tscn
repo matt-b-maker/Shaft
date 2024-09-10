@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://v7su8hfsg7ik"]
+
+[ext_resource type="PackedScene" uid="uid://dyjt58ja10ioo" path="res://Scenes/raider_1.tscn" id="1_gko3j"]
+[ext_resource type="Script" path="res://Scripts/raider_1.gd" id="2_0a1fa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_afaak"]
+distance = -230.0
+
+[node name="Game" type="Node2D"]
+
+[node name="Raider 1" parent="." instance=ExtResource("1_gko3j")]
+position = Vector2(-493, 224)
+script = ExtResource("2_0a1fa")
+
+[node name="Camera2D" type="Camera2D" parent="Raider 1"]
+position = Vector2(446, -260)
+position_smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_afaak")
